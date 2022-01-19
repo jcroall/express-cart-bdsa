@@ -16,13 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 
-      uses: actions/setup-node@v2
-      with:
-        cache: 'npm'
-    - run: npm install
-          
-    # Runs special workflow steps for pull requests
+    #- name: Use Node.js 
+    #  uses: actions/setup-node@v2
+    #  with:
+    #    cache: 'npm'
+    #- run: npm install
+
     - name: Black Duck Workflow for Pull Request
       if: ${{github.event_name == 'pull_request'}}
       uses: matthewb66/blackduck-scan-action@v43
@@ -33,15 +32,14 @@ jobs:
         comment_on_pr: true
         upgrade_major: true
         upgrade_indirect: true
+        incremental_results: true
         trustcert: true
         debug: 9
         mode: rapid
         sarif: blackduck-sarif.json
       env:
         GITHUB_TOKEN: ${{ github.token }}
-          
-          
-    # Runs special workflow steps for pull requests
+
     - name: Black Duck Workflow for Push
       if: ${{github.event_name == 'push'}}
       uses: matthewb66/blackduck-scan-action@v43
