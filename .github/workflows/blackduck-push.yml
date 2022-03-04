@@ -1,4 +1,4 @@
-name: Maven CI4
+name: Black Duck on Push
 
 on:
   push:
@@ -17,8 +17,8 @@ jobs:
       uses: synopsys-sig-community/blackduck-direct-scan-action-github@v0.1.0
       with:
           mode: RAPID
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          tool-version: v0.1.0-TEST
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tool_version: v0.1.0-TEST
           url: ${{ secrets.BLACKDUCK_URL }}
           token: ${{ secrets.BLACKDUCK_API_TOKEN }}
           fix_pr: false
