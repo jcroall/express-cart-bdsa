@@ -41,5 +41,6 @@ jobs:
         debug: 9
         mode: rapid
         sarif: blackduck-sarif.json
+        nocheck: true
       env:
         GITHUB_TOKEN: ${{ github.token }}
