@@ -13,16 +13,33 @@ jobs:
     - uses: actions/checkout@v2
           
     # Runs special workflow steps for pull requests
-    - name: Run Synopsys Detect
-      uses: synopsys-sig-community/blackduck-direct-scan-action-github@v0.1.0
+    #- name: Run Synopsys Detect
+    #  uses: synopsys-sig-community/blackduck-direct-scan-action-github@v0.1.0
+    #  with:
+    #      mode: RAPID
+    #      github_token: ${{ secrets.GITHUB_TOKEN }}
+    #      tool_version: v0.1.0-TEST
+    #      url: ${{ secrets.BLACKDUCK_URL }}
+    #      token: ${{ secrets.BLACKDUCK_API_TOKEN }}
+    #      fix_pr: true
+    #      comment_on_pr: false
+    #      incremental_results: false
+    #      nocheck: true
+    #      detect_opts: detect.scan.conan=/bin/conan
+
+    # Runs special workflow steps for pull requests
+    - name: Black Duck Workflow for Push
+      if: ${{github.event_name == 'push'}}
+      uses: matthewb66/blackduck-scan-directguidance@v3
       with:
-          mode: RAPID
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          tool_version: v0.1.0-TEST
-          url: ${{ secrets.BLACKDUCK_URL }}
-          token: ${{ secrets.BLACKDUCK_API_TOKEN }}
-          fix_pr: true
-          comment_on_pr: false
-          incremental_results: false
-          nocheck: true
-          detect_opts: detect.scan.conan=/bin/conan
+        url: ${{ secrets.BLACKDUCK_URL }}
+        token: ${{ secrets.BLACKDUCK_API_TOKEN }}
+        fix_pr: true
+        comment_on_pr: false
+        upgrade_major: true
+        trustcert: true
+        debug: 9
+        mode: rapid
+        sarif: blackduck-sarif.json
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
