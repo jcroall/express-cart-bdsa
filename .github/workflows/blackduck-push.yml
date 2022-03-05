@@ -21,7 +21,7 @@ jobs:
           tool_version: v0.1.0-TEST
           url: ${{ secrets.BLACKDUCK_URL }}
           token: ${{ secrets.BLACKDUCK_API_TOKEN }}
-          fix_pr: false
+          fix_pr: true
           comment_on_pr: false
           incremental_results: false
           nocheck: true
