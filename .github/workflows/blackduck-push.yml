@@ -18,6 +18,7 @@ jobs:
       with:
         bd_url: ${{ secrets.BLACKDUCK_URL }}
         bd_token: ${{ secrets.BLACKDUCK_API_TOKEN }}
+        sarif: blackduck-sarif.json
         mode: intelligent
       env:
         GITHUB_TOKEN: ${{ github.token }}
@@ -27,6 +28,7 @@ jobs:
       with:
         bd_url: ${{ secrets.BLACKDUCK_URL }}
         bd_token: ${{ secrets.BLACKDUCK_API_TOKEN }}
+        sarif: blackduck-sarif.json
         upgrade_major: true
       env:
         GITHUB_TOKEN: ${{ github.token }}
