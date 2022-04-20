@@ -318,7 +318,7 @@
                             }
                         },
                         {
-                            "id": "BDSA-2020-3243",
+                            "id": "axios-sig",
                             "shortDescription": {
                                 "text": "The direct dependency 'axios/0.19.0' has 3 vulnerabilities (max score 7.8) and 1 vulnerabilities in child dependencies (max score 7.7) reported by security policy violations. Upgrade to version '0.26.1' to address the reported security policy violations."
                             },
@@ -682,7 +682,7 @@
                     }
                 },
                 {
-                    "ruleId": "BDSA-2020-3243",
+                    "ruleId": "axios-sig",
                     "message": {
                         "text": "The direct dependency 'axios/0.19.0' has 3 vulnerabilities (max score 7.8) and 1 vulnerabilities in child dependencies (max score 7.7) reported by security policy violations. Upgrade to version '0.26.1' to address the reported security policy violations."
                     },
@@ -697,10 +697,7 @@
                                 }
                             }
                         }
-                    ],
-                    "partialFingerprints": {
-                        "primaryLocationLineHash": "3d9d879fc3b5b3023a328d60772c89b96c544c8d183b63915435f7cc-JC"
-                    }
+                    ]
                 },
                 {
                     "ruleId": "sitemap",
