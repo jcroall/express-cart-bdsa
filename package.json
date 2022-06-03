@@ -52,7 +52,8 @@
     "strip-bom": "^3.0.0",
     "stripe": "^5.10.0",
     "uglifycss": "0.0.27",
-    "underscore": "^1.9.1"
+    "underscore": "^1.9.1",
+    "y18n": "^3.2.1"
   },
   "devDependencies": {
     "ava": "^2.4.0",
